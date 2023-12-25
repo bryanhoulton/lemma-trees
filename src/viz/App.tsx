@@ -1,6 +1,6 @@
 import "reactflow/dist/style.css";
 
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import ReactFlow, {
   NodeTypes,
@@ -95,6 +95,10 @@ export default function LayoutFlow() {
       color: "green",
     });
   }, [treeLoader]);
+
+  useEffect(() => {
+    onLoad();
+  }, []);
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
