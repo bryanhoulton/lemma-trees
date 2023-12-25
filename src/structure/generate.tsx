@@ -1,3 +1,4 @@
+import data from "./data";
 import { LemmaState } from "./types";
 
 export class TreeLoader {
@@ -67,6 +68,8 @@ export class TreeLoader {
   load() {
     const value = localStorage.getItem(this.key);
     if (value === null) {
+      this.root = data;
+      this.save();
       return;
     }
     this.root = JSON.parse(value) as LemmaState;
